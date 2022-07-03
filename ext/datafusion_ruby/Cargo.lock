@@ -503,6 +503,7 @@ version = "0.0.1"
 dependencies = [
  "datafusion",
  "magnus",
+ "tokio",
 ]
 
 [[package]]
@@ -918,8 +919,7 @@ dependencies = [
 [[package]]
 name = "magnus"
 version = "0.3.2"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "983e15338a2e9644f804de8b5e52fb930bcd53b6859de4f4feb85753532b69d3"
+source = "git+https://github.com/matsadler/magnus#3466dbb87c7f4ec589e07b343ad6843c65555928"
 dependencies = [
  "bindgen",
  "magnus-macros",
@@ -928,8 +928,7 @@ dependencies = [
 [[package]]
 name = "magnus-macros"
 version = "0.1.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "27968fcabe2ef7e35b8331d71a62882282996f6222c133c0255cf7f33b8d9b48"
+source = "git+https://github.com/matsadler/magnus#3466dbb87c7f4ec589e07b343ad6843c65555928"
 dependencies = [
  "darling",
  "proc-macro2",

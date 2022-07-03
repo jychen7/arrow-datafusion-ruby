@@ -15,7 +15,7 @@ App
 ```ruby
 require "datafusion"
 
-ctx = Datafusion.SessionContext.new
+ctx = Datafusion::SessionContext.new
 ctx.register_csv("csv", "test.csv")
 ctx.sql("SELECT * FROM csv").collect
 ```
@@ -24,15 +24,15 @@ ctx.sql("SELECT * FROM csv").collect
 
 SessionContext
 - [x] new
-- [ ] register_csv
-- [ ] sql
+- [x] register_csv
+- [x] sql
 - [ ] register_parquet
 - [ ] register_record_batches
 - [ ] register_udf
 
 Dataframe
-- [ ] new
-- [ ] collect
+- [x] new
+- [x] collect
 - [ ] schema
 - [ ] select_columns
 - [ ] select

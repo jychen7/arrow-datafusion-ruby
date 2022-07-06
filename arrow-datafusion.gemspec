@@ -3,12 +3,12 @@ require_relative "lib/datafusion/version"
 Gem::Specification.new do |spec|
   spec.name = "arrow-datafusion"
   spec.version = Datafusion::VERSION
-  spec.authors = ["Datafusion Contrib Developers"]
-  spec.homepage = "https://github.com/datafusion-contrib/datafusion-ruby"
+  spec.authors = ["jychen7"]
+  spec.homepage = "https://github.com/jychen7/arrow-datafusion-ruby"
 
-  spec.summary = "Ruby bindings of Apache Arrow Datafusion"
+  spec.summary = "yet another Ruby bindings of Apache Arrow Datafusion"
   spec.description =
-    "Ruby bindings of Apache Arrow Datafusion"
+    "yet another Ruby bindings of Apache Arrow Datafusion"
   spec.license = "Apache-2.0"
 
   spec.files = ["README.md", "#{spec.name}.gemspec", "LICENSE"]

@@ -16,8 +16,14 @@ App
 require "datafusion"
 
 ctx = Datafusion::SessionContext.new
+# https://github.com/jychen7/arrow-datafusion-ruby/blob/main/spec/fixtures/test.csv
 ctx.register_csv("csv", "test.csv")
-ctx.sql("SELECT * FROM csv").collect
+results = ctx.sql("SELECT * FROM csv").collect
+
+# results is array of Datafusion::RecordBatch
+results.size # 1
+# to_h converts Datafusion::RecordBatch to ruby Hash
+results[0].to_h # {"int": [1, 2, 3, 4], "str": ["a", "b", "c", "d"], "float": [1.1, 2.2, 3.3, 4.4]}
 ```
 
 ## Supported features
@@ -26,8 +32,8 @@ SessionContext
 - [x] new
 - [x] register_csv
 - [x] sql
+- [ ] register_json
 - [ ] register_parquet
-- [ ] register_record_batches
 - [ ] register_udf
 
 Dataframe

@@ -3,7 +3,7 @@ use datafusion::arrow::{
     datatypes::DataType,
     record_batch::RecordBatch,
 };
-use magnus::{Value, Error};
+use magnus::{Error, Value};
 
 use crate::errors::DataFusionError;
 use std::collections::HashMap;
@@ -31,12 +31,8 @@ impl RbRecordBatch {
                     }
                     DataType::Float64 => {
                         let array = column.as_any().downcast_ref::<Float64Array>().unwrap();
-                        array
-                            .values()
-                            .iter()
-                            .map(|v| (*v as f64).into())
-                            .collect()
-                    },
+                        array.values().iter().map(|v| (*v as f64).into()).collect()
+                    }
                     DataType::Utf8 => {
                         let array = column.as_any().downcast_ref::<StringArray>().unwrap();
                         let mut values: Vec<Value> = vec![];
@@ -44,7 +40,7 @@ impl RbRecordBatch {
                             values.push(std::string::String::from(array.value(i)).into())
                         }
                         values
-                    },
+                    }
                     unknown => {
                         return Err(DataFusionError::CommonError(format!(
                             "unhandle data type: {}",
